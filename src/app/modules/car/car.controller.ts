@@ -81,11 +81,30 @@ const updateSingleCar = async (req: Request, res: Response) => {
             error: error
         })
     }
-}
+};
+
+const deleteSingleCar = async (req: Request, res: Response) => {
+    try {
+        const { carId } = req.params;
+        await CarServices.deleteSingleFromDB(carId);
+        res.status(200).json({
+            message: "Car deleted successfully",
+            status: true,
+            data: {}
+        })
+    } catch (error) {
+        res.status(400).json({
+            message: "Validation failed",
+            success: false,
+            error: error
+        })
+    }
+};
 
 export const CarController = {
     cerateCar,
     getAllCar,
     getSingleCar,
-    updateSingleCar
+    updateSingleCar,
+    deleteSingleCar
 }
