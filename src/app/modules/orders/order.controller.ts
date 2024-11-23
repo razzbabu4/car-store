@@ -18,8 +18,31 @@ const createOrder = async (req: Request, res: Response) => {
         })
     }
 
+};
+
+const getTotalRevenue = async (req: Request, res: Response) => {
+    try {
+        const result = await OrderServices.getTotalRevenueFromOrders();
+        res.status(200).json({
+            message: "Revenue calculated successfully",
+            status: true,
+            data: {
+                totalRevenue: result[0].totalRevenue
+            }
+        })
+    } catch (error) {
+        res.status(404).json({
+            message: "No orders found",
+            status: false,
+            error: error,
+            data: {
+                totalRevenue: 0
+            }
+        })
+    }
 }
 
 export const OrderController = {
-    createOrder
+    createOrder,
+    getTotalRevenue
 }
