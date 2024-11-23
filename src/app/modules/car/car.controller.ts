@@ -3,8 +3,8 @@ import { CarServices } from "./car.service";
 
 const cerateCar = async (req: Request, res: Response) => {
     try {
-        const { car } = req.body;
-        const result = await CarServices.createCarIntoDB(car);
+        const carData = req.body;
+        const result = await CarServices.createCarIntoDB(carData);
         res.status(200).json({
             message: "Car created successfully",
             success: true,
@@ -46,7 +46,18 @@ const getAllCar = async (req: Request, res: Response) => {
     }
 }
 
+const getSingleCar = async (req: Request, res: Response) => {
+    const { carId } = req.params;
+    const result = await CarServices.getSingleCarFromDB(carId)
+    res.status(200).json({
+        message: "Car retrieved successfully",
+        status: true,
+        data: result
+    })
+}
+
 export const CarController = {
     cerateCar,
-    getAllCar
+    getAllCar,
+    getSingleCar
 }
