@@ -6,6 +6,20 @@ const createCarIntoDB = async (carData: TCar) => {
     return result
 }
 
+const getAllCarFromDB = async (searchTerm: string | undefined) => {
+    const filterData: Record<string, unknown> = searchTerm ? {
+        $or: [
+            { brand: { $eq: searchTerm } },
+            { model: { $eq: searchTerm } },
+            { category: { $eq: searchTerm } },
+        ]
+    } : {}
+
+    const result = await CarModel.find(filterData);
+    return result;
+}
+
 export const CarServices = {
     createCarIntoDB,
+    getAllCarFromDB,
 }
