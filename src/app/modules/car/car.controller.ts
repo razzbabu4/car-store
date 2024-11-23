@@ -17,7 +17,7 @@ const cerateCar = async (req: Request, res: Response) => {
             error: error
         })
     }
-}
+};
 
 const getAllCar = async (req: Request, res: Response) => {
     try {
@@ -44,20 +44,48 @@ const getAllCar = async (req: Request, res: Response) => {
             error: error
         })
     }
-}
+};
 
 const getSingleCar = async (req: Request, res: Response) => {
-    const { carId } = req.params;
-    const result = await CarServices.getSingleCarFromDB(carId)
-    res.status(200).json({
-        message: "Car retrieved successfully",
-        status: true,
-        data: result
-    })
+    try {
+        const { carId } = req.params;
+        const result = await CarServices.getSingleCarFromDB(carId)
+        res.status(200).json({
+            message: "Car retrieved successfully",
+            status: true,
+            data: result
+        })
+    } catch (error) {
+        res.status(400).json({
+            message: "Validation failed",
+            success: false,
+            error: error
+        })
+    }
+};
+
+const updateSingleCar = async (req: Request, res: Response) => {
+    try {
+        const { carId } = req.params;
+        const data = req.body;
+        const result = await CarServices.updateSingleIntoDB(carId, data);
+        res.status(200).json({
+            message: "Car updated successfully",
+            status: true,
+            data: result
+        })
+    } catch (error) {
+        res.status(400).json({
+            message: "Validation failed",
+            success: false,
+            error: error
+        })
+    }
 }
 
 export const CarController = {
     cerateCar,
     getAllCar,
-    getSingleCar
+    getSingleCar,
+    updateSingleCar
 }

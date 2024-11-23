@@ -21,12 +21,18 @@ const getAllCarFromDB = async (searchTerm: string | undefined) => {
 }
 
 const getSingleCarFromDB = async (id: string) => {
-    const result = await CarModel.findById({ _id: new Object(id) })
+    const result = await CarModel.findById(id)
+    return result;
+}
+
+const updateSingleIntoDB = async (id: string, data: TCar) => {
+    const result = await CarModel.findByIdAndUpdate(id, data, { new: true });
     return result;
 }
 
 export const CarServices = {
     createCarIntoDB,
     getAllCarFromDB,
-    getSingleCarFromDB
+    getSingleCarFromDB,
+    updateSingleIntoDB,
 }
