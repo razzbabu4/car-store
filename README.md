@@ -36,9 +36,10 @@ validation and inventory management.
     ```
 
 2. **Install Dependencies**:
+   
    - If you prefer npm
     ```sh
-    npm install or yarn install
+    npm install
     ```
    - If you prefer yarn
     ```sh
@@ -46,6 +47,7 @@ validation and inventory management.
     ```
 
 4. **Set Up Environment Variables**:
+   
    - Create a `.env` file in the root directory.
    - Add the necessary environment variables. (**Important!**)
 
@@ -54,7 +56,7 @@ validation and inventory management.
    DATABASE_URL=your_mongodb_connection_string
     ```   
 
-5. **Start the Server**:
+6. **Start the Server**:
     - For npm
     ```sh
     npm run start:dev
@@ -64,6 +66,6 @@ validation and inventory management.
     yarn start:dev
     ```
 
-**Video Explanation**: [Add link here]
+**Video Explanation**: https://www.loom.com/share/87f613f01a984cd2a4b963ff25b86eb3?sid=0601df5d-f389-4f7e-9ef8-d7da5ac02c6d
 
-**Live Deployment**: [Add link here]
+**Live Deployment**: https://car-strore-backend.vercel.app
