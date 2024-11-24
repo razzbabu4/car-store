@@ -36,12 +36,16 @@ validation and inventory management.
     ```
 
 2. **Install Dependencies**:
-
+   - If you prefer npm
     ```sh
-    npm install
+    npm install or yarn install
+    ```
+   - If you prefer yarn
+    ```sh
+    yarn install
     ```
 
-3. **Set Up Environment Variables**:
+4. **Set Up Environment Variables**:
    - Create a `.env` file in the root directory.
    - Add the necessary environment variables. (**Important!**)
 
@@ -51,9 +55,13 @@ validation and inventory management.
     ```   
 
 5. **Start the Server**:
-
+    - For npm
     ```sh
     npm run start:dev
+    ```
+    - For yarn
+    ```sh
+    yarn start:dev
     ```
 
 **Video Explanation**: [Add link here]
