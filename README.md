@@ -49,7 +49,7 @@ validation and inventory management.
    - If you prefer npm
 
    ```sh
-   npm install or yarn install
+   npm install
    ```
 
    - If you prefer yarn
@@ -73,6 +73,7 @@ validation and inventory management.
    ```sh
    npm run start:dev
    ```
+   
    - For yarn
    ```sh
    yarn start:dev
