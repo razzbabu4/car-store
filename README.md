@@ -41,7 +41,7 @@ validation and inventory management.
 
    ```sh
    git clone https://github.com/razzbabu4/car-store-api.git
-   cd car-store
+   cd car-store-api
    ```
 
 2. **Install Dependencies**:
